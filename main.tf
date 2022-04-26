@@ -24,22 +24,22 @@ module "gcp_syd_transit03" {
   learned_cidrs_approval_mode = "gateway"
 }
 
-# module "gcp_syd_fortigate" {
-#   source  = "terraform-aviatrix-modules/mc-firenet/aviatrix"
-#   version = "1.0.0"
+module "gcp_syd_fortigate" {
+  source  = "terraform-aviatrix-modules/mc-firenet/aviatrix"
+  version = "1.0.0"
 
-#   custom_fw_names    = ["gcp-syd-fg"]
-#   fw_amount          = 1
-#   transit_module     = module.gcp_syd_transit03
-#   firewall_image     = "Fortinet FortiGate Next-Generation Firewall"
-#   instance_size      = "n1-highcpu-2"
-#   egress_enabled     = false
-#   inspection_enabled = false
-#   password           = "Aviatrix123#"
-#   egress_cidr        = cidrsubnet(var.gcp_sgp_supernet, 7, 2)
+  custom_fw_names    = ["gcp-syd-fg"]
+  fw_amount          = 1
+  transit_module     = module.gcp_syd_transit03
+  firewall_image     = "Fortinet FortiGate Next-Generation Firewall"
+  instance_size      = "n1-highcpu-2"
+  egress_enabled     = false
+  inspection_enabled = false
+  password           = "Aviatrix123#"
+  egress_cidr        = cidrsubnet(var.gcp_sgp_supernet, 7, 2)
 
-#   depends_on = [module.gcp_syd_transit03]
-# }
+  depends_on = [module.gcp_syd_transit03]
+}
 
 module "gcp_syd_spoke_prod03" {
   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
