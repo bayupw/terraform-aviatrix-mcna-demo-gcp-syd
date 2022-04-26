@@ -1,15 +1,23 @@
-output "aviatrix_transit_gateway" {
-  description = "aviatrix_transit_gateway"
-  value       = module.gcp_syd_transit03.aviatrix_transit_gateway
+output "transit_vpc" {
+  description = "transit_vpc"
+  value       = module.gcp_syd_transit03.vpc
+}
+output "transit_gateway" {
+  description = "transit_gateway"
+  value       = module.gcp_syd_transit03.transit_gateway
 }
 
-output "gcp_syd_transit03_aviatrix_vpc" {
-  description = "aviatrix_vpc"
-  value       = module.gcp_syd_transit03.aviatrix_vpc
+output "firenet" {
+  description = "firenet"
+  value       = module.gcp_syd_transit03.mc_firenet_details
 }
 
-output "gcp_syd_fortigate_aviatrix_vpc" {
-  description = "gcp_syd_fortigate"
-  value       = module.gcp_syd_fortigate.aviatrix_vpc
-  sensitive   = false
+output "firenet" {
+  description = "aviatrix_firenet"
+  value       = module.gcp_syd_fortigate.aviatrix_firenet
+}
+
+output "firewall" {
+  description = "aviatrix_firenet"
+  value       = module.gcp_syd_fortigate.aviatrix_firewall_instance
 }
