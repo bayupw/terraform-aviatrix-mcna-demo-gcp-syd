@@ -3,10 +3,10 @@ output "transit_vpc" {
   value       = module.gcp_syd_transit03.vpc
 }
 
-output "transit_gateway" {
-  description = "transit_gateway"
-  value       = module.gcp_syd_transit03.transit_gateway
-}
+# output "transit_gateway" {
+#   description = "transit_gateway"
+#   value       = module.gcp_syd_transit03.transit_gateway
+# }
 
 # output "firenet" {
 #   description = "aviatrix_firenet"
