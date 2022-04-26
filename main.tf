@@ -77,7 +77,7 @@ module "gcp_syd_prod03_vm" {
   source  = "bayupw/ubuntu-vm/google"
   version = "1.0.0"
 
-  vm_name      = "gcp-syd-prod03"
+  vm_name      = "syd-prod03-vm"
   region       = "australia-southeast1"
   network_name = module.gcp_syd_spoke_prod03.vpc.id
   subnet_name  = module.gcp_syd_spoke_prod03.vpc.subnets[0].name
@@ -89,7 +89,7 @@ module "gcp_syd_dev02_vm" {
   source  = "bayupw/ubuntu-vm/google"
   version = "1.0.0"
 
-  vm_name      = "gcp-syd-dev02"
+  vm_name      = "syd-dev02-vm"
   region       = "australia-southeast1"
   network_name = module.gcp_syd_spoke_dev02.vpc.id
   subnet_name  = module.gcp_syd_spoke_dev02.vpc.subnets[0].name
