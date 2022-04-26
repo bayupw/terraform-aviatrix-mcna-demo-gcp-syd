@@ -8,11 +8,6 @@ output "transit_gateway" {
 }
 
 output "firenet" {
-  description = "firenet"
-  value       = module.gcp_syd_transit03.mc_firenet_details
-}
-
-output "firenet" {
   description = "aviatrix_firenet"
   value       = module.gcp_syd_fortigate.aviatrix_firenet
 }
