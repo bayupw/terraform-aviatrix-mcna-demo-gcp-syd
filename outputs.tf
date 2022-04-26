@@ -4,8 +4,8 @@ output "project" {
   sensitive   = false
 }
 
-output "region" {
-  description = "Region"
-  value       = data.google_compute_zones.available.region
+output "zones" {
+  description = "zones"
+  value       = data.google_compute_zones.available
   sensitive   = false
 }
