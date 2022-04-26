@@ -74,7 +74,7 @@ module "gcp_syd_spoke_dev02" {
 }
 
 module "gcp_syd_prod03_vm" {
-  source  = "bayupw/-ubuntu-vm/google"
+  source  = "bayupw/ubuntu-vm/google"
   version = "1.0.0"
 
   vm_name      = "gcp-syd-prod03"
@@ -86,7 +86,7 @@ module "gcp_syd_prod03_vm" {
 }
 
 module "gcp_syd_dev02_vm" {
-  source  = "bayupw/-ubuntu-vm/google"
+  source  = "bayupw/ubuntu-vm/google"
   version = "1.0.0"
 
   vm_name      = "gcp-syd-dev02"
