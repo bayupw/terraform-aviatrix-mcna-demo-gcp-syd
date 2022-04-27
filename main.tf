@@ -57,42 +57,42 @@ module "gcp_syd_spoke_prod03" {
   transit_gw = module.gcp_syd_transit03.transit_gateway.gw_name
 }
 
-# module "gcp_syd_spoke_dev02" {
-#   source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
-#   version = "1.1.2"
+module "gcp_syd_spoke_dev02" {
+  source  = "terraform-aviatrix-modules/mc-spoke/aviatrix"
+  version = "1.1.2"
 
-#   name          = "gcp-syd-spoke-dev02"
-#   cloud         = "gcp"
-#   cidr          = cidrsubnet(var.supernet, 8, 12)
-#   region        = "australia-southeast1"
-#   account       = var.gcp_account
-#   instance_size = "n1-standard-1"
-#   single_az_ha  = false
-#   ha_gw         = false
-#   #attached      = false
-#   transit_gw = module.gcp_syd_transit03.transit_gateway.gw_name
-# }
+  name          = "gcp-syd-spoke-dev02"
+  cloud         = "gcp"
+  cidr          = cidrsubnet(var.supernet, 8, 12)
+  region        = "australia-southeast1"
+  account       = var.gcp_account
+  instance_size = "n1-standard-1"
+  single_az_ha  = false
+  ha_gw         = false
+  #attached      = false
+  transit_gw = module.gcp_syd_transit03.transit_gateway.gw_name
+}
 
-# module "gcp_syd_prod03_vm" {
-#   source  = "bayupw/ubuntu-vm/google"
-#   version = "1.0.0"
+module "gcp_syd_prod03_vm" {
+  source  = "bayupw/ubuntu-vm/google"
+  version = "1.0.0"
 
-#   vm_name      = "syd-prod03-vm"
-#   region       = "australia-southeast1"
-#   network_name = module.gcp_syd_spoke_prod03.vpc.id
-#   subnet_name  = module.gcp_syd_spoke_prod03.vpc.subnets[0].name
+  vm_name      = "syd-prod03-vm"
+  region       = "australia-southeast1"
+  network_name = module.gcp_syd_spoke_prod03.vpc.id
+  subnet_name  = module.gcp_syd_spoke_prod03.vpc.subnets[0].name
 
-#   depends_on = [module.gcp_syd_spoke_prod03]
-# }
+  depends_on = [module.gcp_syd_spoke_prod03]
+}
 
-# module "gcp_syd_dev02_vm" {
-#   source  = "bayupw/ubuntu-vm/google"
-#   version = "1.0.0"
+module "gcp_syd_dev02_vm" {
+  source  = "bayupw/ubuntu-vm/google"
+  version = "1.0.0"
 
-#   vm_name      = "syd-dev02-vm"
-#   region       = "australia-southeast1"
-#   network_name = module.gcp_syd_spoke_dev02.vpc.id
-#   subnet_name  = module.gcp_syd_spoke_dev02.vpc.subnets[0].name
+  vm_name      = "syd-dev02-vm"
+  region       = "australia-southeast1"
+  network_name = module.gcp_syd_spoke_dev02.vpc.id
+  subnet_name  = module.gcp_syd_spoke_dev02.vpc.subnets[0].name
 
-#   depends_on = [module.gcp_syd_spoke_dev02]
-#}
+  depends_on = [module.gcp_syd_spoke_dev02]
+}
